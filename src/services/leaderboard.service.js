@@ -17,7 +17,7 @@ const postScores = (nickname, score) =>
 const getScores = (nickname, score) =>
   new Promise((resolve, reject) => {
     connection.query(
-      'SELECT * FROM leaderboard ORDER BY score LIMIT 10;',
+      'SELECT * FROM leaderboard ORDER BY score desc LIMIT 10;',
       [nickname, score],
       (err, rows) => {
         if (err) {
