@@ -81,14 +81,14 @@ const getBeats = json => {
       return;
     }
   });
-  console.log(firstArray.length, secondArray.length, thirdArray.length, fourthArray.length);
+  return [firstArray, secondArray, thirdArray, fourthArray];
 };
 const trackController = (req, res) => {
   fetch('http://localhost:3000/spotify')
     .then(answer => answer.json())
     .then(data => {
-      getBeats(data);
-      res.status(200).send('ok');
+      // console.log(typeof getBeats(data));
+      res.status(200).send({ tracks: getBeats(data) });
     })
     .catch(console.log);
 };
