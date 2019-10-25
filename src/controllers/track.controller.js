@@ -87,7 +87,7 @@ const trackController = (req, res) => {
     .then(data => {
       res.status(200).send({ tracks: getBeats(data) });
     })
-    .catch(err => res.send(400).send(err));
+    .catch(err =>  res.status(400).send({ error: err.message }));
 };
 
 module.exports = trackController;
