@@ -1,6 +1,5 @@
 const connection = require('./connecttodb');
 
-
 const postScores = (nickname, score) =>
   new Promise((resolve, reject) => {
     connection.query(
@@ -14,6 +13,7 @@ const postScores = (nickname, score) =>
         }
       });
   });
+
 const getScores = (nickname, score) =>
   new Promise((resolve, reject) => {
     connection.query(

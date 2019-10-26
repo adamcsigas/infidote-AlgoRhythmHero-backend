@@ -5,6 +5,8 @@ const express = require('express');
 const app = express();
 const mysql = require('mysql');
 const environment = require('../utils/index');
+const cors = require('cors');
+const router = require('./routes/index');
 
 const connection = mysql.createConnection({
   host: environment.HOST,
@@ -26,11 +28,9 @@ module.exports = connection;
 
 app.use(express.json());
 
-const cors = require('cors');
 
 app.use(cors());
 
-const router = require('./routes/index');
 
 app.use(router);
 

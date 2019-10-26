@@ -5,6 +5,7 @@ const leaderboardController = (req, res) => {
   if (!nickname || !score) {
     return res.status(400).send({ error: 'no nickname or score provided'})
   }
+
   leaderboard.postScores(nickname, score)
     .then(data => res.status(200).send('ok'))
     .catch(err => res.status(400).send({ err: err.message }))
