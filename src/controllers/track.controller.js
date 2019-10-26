@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 
-const aboveAverage = 0.8;
-const average = 0.6;
+const aboveAverage = 0.6;
+const average = 0.5;
 const beloveAverage = 0.4;
 
 const getAverage = json => {
@@ -30,11 +30,11 @@ const getFirstFourSectionsLoudness = json => {
   return arrayOfLoudnesses;
 };
 const randomize = (averageLoudness, loudness) => {
-  if (loudness < averageLoudness - 2) {
+  if (loudness < averageLoudness - 1) {
     return (Math.random() > beloveAverage) ? false : true;
-  } else if (averageLoudness - 2 < loudness < averageLoudness + 2) {
+  } else if (averageLoudness - 1 < loudness < averageLoudness + 1) {
     return (Math.random() > average) ? false : true;
-  } else if (loudness > averageLoudness + 2) {
+  } else if (loudness > averageLoudness + 1) {
     return (Math.random() > aboveAverage) ? false : true;
   }
 };
