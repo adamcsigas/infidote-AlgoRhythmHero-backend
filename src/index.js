@@ -26,9 +26,14 @@ module.exports = connection;
 
 app.use(express.json());
 
+const cors = require('cors');
+
+app.use(cors());
+
 const router = require('./routes/index');
 
 app.use(router);
+
 
 app.listen(PORT, () => {
   console.log(`Port is listening on ${PORT}`);
