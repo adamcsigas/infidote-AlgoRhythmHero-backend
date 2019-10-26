@@ -20,7 +20,6 @@ const getFirstFourSectionsEndpoint = json => {
   for (let i = 1; i < 5; i++) {
     arrayOfSectionsEnd.push(json.sections[i].start);
   }
-  // console.log(arrayOfSectionsEnd);
   return arrayOfSectionsEnd;
 };
 const getFirstFourSectionsLoudness = json => {
@@ -28,7 +27,6 @@ const getFirstFourSectionsLoudness = json => {
   for (let i = 0; i < 4; i++) {
     arrayOfLoudnesses.push(json.sections[i].loudness);
   }
-  // console.log(arrayOfLoudnesses);
   return arrayOfLoudnesses;
 };
 const randomize = (averageLoudness, loudness) => {
@@ -87,10 +85,9 @@ const trackController = (req, res) => {
   fetch('http://localhost:3000/spotify')
     .then(answer => answer.json())
     .then(data => {
-      // console.log(typeof getBeats(data));
       res.status(200).send({ tracks: getBeats(data) });
     })
-    .catch(console.log);
+    .catch(err =>  res.status(400).send({ error: err.message }));
 };
 
 module.exports = trackController;
